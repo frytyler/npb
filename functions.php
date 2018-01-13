@@ -25,7 +25,7 @@ class NPB {
 	public function __construct( )
 	{
 		global $wpdb;
-		$this->LANGS = (sp_french_enabled())? array('en','fr') : array('en');
+		$this->LANGS = array('en','fr');
 		register_nav_menus( array( 'Primary' => 'Main Navigation' ) );
 		register_nav_menus( array( 'Top' => 'Secondary Navigation' ) );
 		register_nav_menus( array( 'Footer' => 'Footer Navigation' ) );
@@ -861,7 +861,7 @@ class NPB {
 			'container_class' => 'nav '. $container_class,
 			'echo' => 0,
 			'depth' => 2,
-			'menu_class' => 'clearfix'
+			'menu_class' => 'nav '. $container_class,
 		);
 		return wp_nav_menu( $args );
 	}
@@ -1195,7 +1195,7 @@ function qtranslate_menu_item( $menu_item ) {
 return $menu_item;
 }
 
-add_filter('wp_setup_nav_menu_item', 'qtranslate_menu_item', 0);
+// add_filter('wp_setup_nav_menu_item', 'qtranslate_menu_item', 0);
 add_action('admin_menu', 'my_remove_menu_elements', 102);
 
 function my_remove_menu_elements()
