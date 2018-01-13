@@ -1,0 +1,29 @@
+<div class="splash">
+	{% if desktop_banner or mobile_banner %}
+		<img src="{{ desktop_banner|raw }}" class="desktop-banner" />
+		<img src="{{ mobile_banner|raw }}" class="mobile-banner" />
+	{% endif %}
+	<div class="container">
+		<br />
+		{{ msg|raw }}
+		{{ message|raw }}
+		<hr />
+		<form method="post">
+			<input type="hidden" name="{{ fields.hidden_field.name }}" id="{{ fields.hidden_field.id}}" value="{{ fields.hidden_field.value }}" />
+			<div class="inner_container">
+				<div class="col_1of3">
+					<label for="{{ fields.fullname.id }}">{{ fields.fullname.label|e }}</label>
+					<input type="text" name="{{ fields.fullname.name }}" class="form-control" id="{{ fields.fullname.id }}" value="{{ fields.fullname.value|e }}" placeholder="{{ fields.fullname.label|e }}" />
+				</div>
+				<div class="col_1of3">
+					<label for="{{ fields.email.id }}">{{ fields.email.label|e }}</label>
+					<input type="text" name="{{ fields.email.name }}" class="form-control" id="{{ fields.email.id }}" value="{{ fields.email.value|e }}" placeholder="{{ fields.email.label|e }}" required />
+				</div>
+				<div class="col_1of3">
+					<label for="">&nbsp;</label>
+					<input type="submit" class="btn btn-primary btn-block" value="{{ button_text }}" />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

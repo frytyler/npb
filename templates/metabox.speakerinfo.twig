@@ -1,0 +1,20 @@
+<div class="sp_metabox">
+	<header class="header">
+		<h2>Speaker Info</h2>
+	</header>
+	<div class="body">
+		{% for lang in langs %}
+			<label for="position_{{ lang }}">Position <strong>({{ lang|upper }})</strong>:</label>
+			<input type="text" class="widefat" name="position_{{ lang }}" id="position_{{ lang }}" value="{{ field[lang].position|e }}">
+		{% endfor %}
+		<hr />
+		{% for lang in langs %}
+			<label for="twitter_link_{{ lang }}">Twitter Username <strong>({{ lang|upper }})</strong>:</label>
+			<input type="text" class="widefat" name="twitter_link_{{ lang }}" id="twitter_link_{{ lang }}" value="{{ field[lang].twitter_link|e }}">
+			<label for="facebook_link_{{ lang }}">Faceboook Link <strong>({{ lang|upper }})</strong>:</label>
+			<input type="text" class="widefat" name="facebook_link_{{ lang }}" id="facebook_link_{{ lang }}" value="{{ field[lang].facebook_link|e }}">
+			{{ lang == 'en' ? '<hr />' : '' }}
+		{% endfor %}
+	</div>
+	<div class="footer"></div>
+</div>

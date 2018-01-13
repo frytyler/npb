@@ -1,0 +1,17 @@
+{{ msg | raw }}
+<form action="" method="post">
+	<input type="hidden" name="{{ hidden_field_name }}" value="1">
+	<div class="inner_container">
+		{% for lang in langs %}
+			<div class="col_1of2">
+				{% for site in sites %}
+					<label for="{{ site|lower }}_{{ lang }}">{{ site }} Link <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="{{ site|lower }}_{{ lang }}" id="{{ site|lower }}_{{ lang }}" value="{{ field[lang][site|lower]|e }}">
+				{% endfor %}
+			</div>
+		{% endfor %}
+		<div class="col_1of1 form-group">
+			<button type="submit" class="button button-primary">Save</button>
+		</div>
+	</div>
+</form>

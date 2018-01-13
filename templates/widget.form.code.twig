@@ -1,0 +1,11 @@
+{% for lang in langs %}
+{{ (lang == 'fr') ? '<hr />' : '' }}
+<p>
+	<label for="{{ field[lang].title.id }}">Title (optional): ({{ lang | upper }})</label>
+	<input class="widefat" id="{{ field[lang].title.id }}" name="{{ field[lang].title.name }}" type="text" value="{{ field[lang].title.value|e }}" maxlength="100" />
+</p>
+<p>
+	<label for="{{ field[lang].text.id }}">Text (required): ({{ lang | upper }})</label>
+	<textarea class="widefat" rows="16" cols="20" id="{{ field[lang].text.id }}" name="{{ field[lang].text.name }}">{{ field[lang].text.value }}</textarea>
+</p>
+{% endfor %}

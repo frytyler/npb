@@ -1,0 +1,17 @@
+$base               : #236C31;
+$base_accent        : #238C37;
+
+$primary            : #016d91;
+$secondary          : #df4f37;
+$tertiary           : #f27835;
+
+$primary_link       : lighten($base_accent, 10%);
+$primary_link_hover : darken($primary_link, 15%);
+
+$heading            : #236C31;
+$text               : #868685;
+
+$small              : 600px;
+$medium             : 779px;
+$large              : 959px;
+$extralarge         : 1199px;

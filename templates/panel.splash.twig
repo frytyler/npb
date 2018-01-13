@@ -1,0 +1,46 @@
+{{ msg | raw }}
+<div class="note">
+	<p>Enter both English and French into the text boxes for these settings</p>
+</div>
+<form action="" method="post">
+	<input type="hidden" name="{{ hidden_field_name }}" value="1">
+	<div class="inner_container">
+		<div class="col_1of3">
+			<label for="email_label">E-mail Label: <strong>EX:</strong> <small>E-mail / E -mail</small></label>
+			<input type="text" name="email_label" id="email_label" class="widefat" value="{{ field.email_label|e }}" />
+			<label for="fullname_label">Fullname Label: <strong>EX:</strong> <small>Fullname / Nom et prénom</small></label>
+			<input type="text" name="fullname_label" id="fullname_label" class="widefat" value="{{ field.fullname_label|e }}" />
+			<label for="button_label">Button Label: <strong>EX:</strong> <small>Submit / Soumettre</small></label>
+			<input type="text" name="button_label" id="button_label" class="widefat" value="{{ field.button_label|e }}" />
+			<label for="success_message">Success Message:</label>
+			<input type="text" name="success_message" id="success_message" class="widefat" value="{{ field.success_message|e }}" />
+			<label for="error_message">Error Message:</label>
+			<input type="text" name="error_message" id="error_message" class="widefat" value="{{ field.error_message|e }}" />
+		</div>
+		<div class="col_1of3">
+			<label for="message">Message:</label>
+			<textarea name="message" id="message" class="widefat" style="min-height:250px;">{{ field.message }}</textarea>
+		</div>
+		<div class="col_1of3">
+			<label for="desktop_banner">Link to <strong>Desktop</strong> banner image: <small>(Upload image via Media tab)</small></label>
+			<input type="text" name="desktop_banner" id="desktop_banner" class="widefat" value="{{ field.desktop_banner|e }}" />
+			<label for="mobile_banner">Link to <strong>Mobile</strong> banner image: <small>(Upload image via Media tab)</small></label>
+			<input type="text" name="mobile_banner" id="mobile_banner" class="widefat" value="{{ field.mobile_banner|e }}" />
+			<hr />
+			<h4>Email Notification:</h4>
+			<label for="to_name">To Name: <small>(To notifiy when submission comes in.)</small></label>
+			<input type="text" name="to_name" id="to_name" class="widefat" value="{{ field.to_name|e }}" />
+			<label for="to_email">To Email address: <small>(To notifiy when submission comes in.)</small></label>
+			<input type="text" name="to_email" id="to_email" class="widefat" value="{{ field.to_email|e }}" />
+		</div>
+		<div class="col_1of1 form-group">
+			<button type="submit" class="button button-primary">Save</button>
+		</div>
+	</div>
+</form>
+
+<hr>
+<form method="post">
+	<input type="hidden" name="splash_page_email_download" value="1">
+	<p>CSV of E-mails collected: <button type="submit" class="button button-primary">Download</button></p>
+</form>

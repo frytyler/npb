@@ -1,0 +1,20 @@
+{{ settings.before_widget | raw }}
+{% for post in posts %}
+	<header>
+		{{ settings.before_title|raw }}
+		{{ settings.title|raw }}
+		{{ setttings.after_title|raw }}
+	</header>
+	<article>
+		<div class="date">{{ post.eventinfo[lang].date }}</div>
+		<div class="location">{{ post.eventinfo[lang].location_name }}</div>
+		<div class="address">{{ post.eventinfo[lang].location_address|raw }}</div>
+		{% if post.eventinfo[lang].location_link %}
+			{{ post.eventinfo[lang].location_link|replace({'width="600"': 'width="100%"', 'height="450"': 'height="200"'})|raw }}
+		{% endif %}
+		{% if post.eventinfo[lang].button_text %}
+			<a class="btn btn-primary btn-large btn-block" href="{{ post.eventinfo[lang].button_link|e }}" target="_blank">{{ post.eventinfo[lang].button_text }}</a>
+		{% endif %}
+	</article>
+{% endfor %}
+{{ settings.after_widget | raw }}

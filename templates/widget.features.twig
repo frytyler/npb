@@ -1,0 +1,15 @@
+{{ settings.before_widget | raw }}
+{% for post in posts %}
+	<header class="primary">
+		{{ settings.before_title|raw }}
+		{{ post.title|raw }}
+		{{ setttings.after_title|raw }}
+	</header>
+	<article class="primary">
+		{{ post.content|raw }}
+		{% if post.featureinfo[lang].btn_text %}
+			<a class="btn btn-large btn-block" href="{{ post.featureinfo[lang].btn_link|e }}" target="_blank">{{ post.featureinfo[lang].btn_text }}</a>
+		{% endif %}
+	</article>
+{% endfor %}
+{{ settings.after_widget | raw }}

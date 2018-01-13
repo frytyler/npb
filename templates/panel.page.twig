@@ -1,0 +1,36 @@
+{{ msg | raw }}
+<form action="" method="post">
+	<input type="hidden" name="{{ hidden_field_name }}" value="1">
+	<div class="inner_container">
+		<div class="col_1of3">
+			<label for="brands_page_count">Brand Count: <small>(How many brands to show on one page.)</small></label>
+			<select name="brands_page_count" id="brands_page_count" class="widefat">
+				<option value="0">Select Count</option>
+				{% for i in 1..30 %}
+				    <option value="{{ i }}" {{ (field.brands_page_count == i) ? 'selected="selected"' : ''}}>{{ i }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col_1of3">
+			<label for="services_page_count">Service Count: <small>(How many services to show on one page.)</small></label>
+			<select name="services_page_count" id="services_page_count" class="widefat">
+				<option value="0">Select Count</option>
+				{% for i in 1..30 %}
+				    <option value="{{ i }}" {{ (field.services_page_count == i) ? 'selected="selected"' : ''}}>{{ i }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col_1of3">
+			<label for="blog_page_count">Blog Count: <small>(How many blog posts to show on one page.)</small></label>
+			<select name="blog_page_count" id="blog_page_count" class="widefat">
+				<option value="0">Select Count</option>
+				{% for i in 1..30 %}
+				    <option value="{{ i }}" {{ (field.blog_page_count == i) ? 'selected="selected"' : ''}}>{{ i }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col_1of1 form-group">
+			<button type="submit" class="button button-primary">Save</button>
+		</div>
+	</div>
+</form>

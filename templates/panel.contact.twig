@@ -1,0 +1,38 @@
+{{ msg | raw }}
+<p>
+	Form will have Name, Email, Postal Code, Message fields. All these fields are required.
+</p>
+<form action="" method="post">
+	<input type="hidden" name="{{ hidden_field_name }}" value="1">
+	<div class="inner_container">
+		<div class="col_1of2">
+			<label for="contact_to_names">To Name(s): <small>( seperated by comma )</small></label>
+			<input type="text" name="contact_to_names" id="contact_to_names" value="{{ field.to_names }}" class="widefat">
+		</div>
+		<div class="col_1of2">
+			<label for="contact_to_emails">To Email(s): <small>( seperated by comma )</small></label>
+			<input type="text" name="contact_to_emails" id="contact_to_emails" value="{{ field.to_emails }}" class="widefat">
+		</div>
+		<div class="col_1of1"><hr /></div>
+		{% for lang in langs %}
+			<div class="col_1of2">
+				<label for="contact_button_text_{{ lang }}">Button Text: <strong>({{ lang|upper }})</strong> <small>( EX: Submit )</small></label>
+				<input type="text" name="contact_button_text_{{ lang }}" id="contact_button_text_{{ lang }}" value="{{ field[lang].button_text }}" class="widefat">
+				<label for="contact_success_msg_{{ lang }}">Success Message: <strong>({{ lang|upper }})</strong> <small>( After form is submitted )</small></label>
+				<input type="text" name="contact_success_msg_{{ lang }}" id="contact_success_msg_{{ lang }}" value="{{ field[lang].success_msg }}" class="widefat">
+				<label for="contact_error_msg_{{ lang }}">Error Message: <strong>({{ lang|upper }})</strong> <small>( If a field is blank )</small></label>
+				<input type="text" name="contact_error_msg_{{ lang }}" id="contact_error_msg_{{ lang }}" value="{{ field[lang].error_msg }}" class="widefat">
+			</div>
+		{% endfor %}
+		<div class="col_1of1 form-group">
+			<button type="submit" class="button button-primary">Save</button>
+		</div>
+	</div>
+</form>
+
+
+<hr>
+<form method="post">
+	<input type="hidden" name="contact_form_download" value="1">
+	<p>CSV of Contact Form submissions: <button type="submit" class="button button-primary">Download</button></p>
+</form>

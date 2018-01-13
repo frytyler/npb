@@ -1,0 +1,47 @@
+<div class="container">
+	<section class="feature flexslider">
+		<ul class="slides">
+			{% for post in posts %}
+				<li>
+					<div class="inner_container">
+						<div class="col_2of3 {{ post.featureinfo.alignment == 'right' ? '' : 'right' }}">
+							
+							{% if post.featureinfo[lang].youtube_id %}
+								<iframe id="ytplayer{{ post.id }}" type="text/html" width="100%" height="430" src="http://www.youtube.com/embed/{{ post.featureinfo[lang].youtube_id }}?controls=0&amp;rel=0&amp;showinfo=0&amp;theme=light" frameborder="0" allowfullscreen></iframe>
+							{% else %}
+								{% if post.image %}
+									{% if post.featureinfo[lang].image_link %}
+										<a href="{{ post.featureinfo[lang].image_link|e }}">
+									{% endif %}
+										<img src="{{ post.image }}" class="feature-image" alt="" />
+									{% if post.featureinfo[lang].image_link %}
+										</a>
+									{% endif %}
+								{% endif %}
+							{% endif %}
+						</div>
+						<div class="col_1of3 {{ post.featureinfo.alignment == 'right' ? '' : 'right' }}">
+							<div class="box">
+								<header>
+									<h2 {% if post.featureinfo.color != '' %}style="color:{{ post.featureinfo.color }};"{% endif %}>{{ post.title|raw }}</h2>
+								</header>
+								<article {% if post.featureinfo.color != '' %}style="color:{{ post.featureinfo.color }};"{% endif %}>
+									{{ post.content|raw }}
+									{% if post.featureinfo[lang].btn_text %}
+										<a class="btn btn-large btn-block" href="{{ post.featureinfo[lang].btn_link|e }}" target="_blank">{{ post.featureinfo[lang].btn_text }}</a>
+									{% endif %}
+								</article>
+							</div>
+						</div>
+					</div> {# .inner_container #}
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+	<script>
+		jQuery(document).ready(function( ){
+			var settings = { slideshowSpeed: {{ settings.feature_speed }} };
+			app.plugins.flexslider('.flexslider',settings);
+		});
+	</script>
+</div>

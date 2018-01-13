@@ -1,0 +1,42 @@
+<div class="sp_metabox">
+	<header class="header">
+		<h2>Event Info</h2>
+	</header>
+	<div class="body">
+		<div class="inner_container">
+			{% for lang in langs %}
+				<div class="col_1of2">
+					<div class="form-group">
+						<label for="date_{{ lang }}">
+							Date <strong>({{ lang|upper }})</strong>: 
+							<small>EX: ( {{ lang == 'en' ? 'May 25, 2015' : '25 mai 2015'}} )</small>
+						</label>
+						<input type="text" class="widefat" name="date_{{ lang }}" id="date_{{ lang }}" value="{{ field[lang].date|e }}">
+					</div>
+					<div class="form-group">
+						<label for="location_name_{{ lang }}">Location Name <strong>({{ lang|upper }})</strong>:</label>
+						<input type="text" class="widefat" name="location_name_{{ lang }}" id="location_name_{{ lang }}" value="{{ field[lang].location_name|e }}">
+					</div>
+					<div class="form-group">
+						<label for="location_link_{{ lang }}">Location Link <strong>({{ lang|upper }})</strong>: <small>Embed Link from google.</small></label>
+						<input type="text" class="widefat" name="location_link_{{ lang }}" id="location_link_{{ lang }}" value="{{ field[lang].location_link|e }}">
+					</div>
+					<div class="form-group">
+						<label for="location_address_{{ lang }}">Location Address <strong>({{ lang|upper }})</strong>: <small>Use <code>&lt;br /&gt;</code> to line break</small></label>
+						<textarea style="min-height: 100px;" class="widefat" name="location_address_{{ lang }}" id="location_address_{{ lang }}">{{ field[lang].location_address|e }}</textarea>
+					</div>
+				</div>
+			{% endfor %}
+			<div class="col_1of1"><hr /></div>
+			{% for lang in langs %}
+				<div class="col_1of2">
+					<label for="button_text_{{ lang }}">Button Text <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="button_text_{{ lang }}" id="button_text_{{ lang }}" value="{{ field[lang].button_text|e }}">
+					<label for="button_link_{{ lang }}">Button Link <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="button_link_{{ lang }}" id="button_link_{{ lang }}" value="{{ field[lang].button_link|e }}">
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="footer"></div>
+</div>

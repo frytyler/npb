@@ -1,0 +1,45 @@
+<div class="sp_metabox">
+	<header class="header">
+		<h2>Feature Info</h2>
+	</header>
+	<div class="body">
+		<div class="inner_container">
+			{% for lang in langs %}
+				<div class="col_1of2">
+					<label for="btn_text_{{ lang }}">Button Text <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="btn_text_{{ lang }}" value="{{ field[lang].btn_text }}" />
+					<label for="btn_link_{{ lang }}">Button Link <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="btn_link_{{ lang }}" value="{{ field[lang].btn_link }}" />
+				</div>
+			{% endfor %}
+			<div class="col_1of1">
+				<hr />
+			</div>
+			{% for lang in langs %}
+				<div class="col_1of2">
+					<label for="image_link_{{ lang }}">Link Around Image <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="image_link_{{ lang }}" value="{{ field[lang].image_link }}" />
+				</div>
+				<div class="col_1of2">
+					<label for="youtube_link_{{ lang }}">Youtube Link {{ field[lang].youtube_id }} <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="youtube_link_{{ lang }}" value="{{ field[lang].youtube_link }}" />
+				</div>
+			{% endfor %}	
+			<div class="col_1of1">
+				<hr />
+			</div>
+			<div class="col_1of2">
+				<label for="alignment">Text Alignment:</label>
+				<select name="alignment" id="alignment" class="widefat">
+					<option value="left" {{ field.alignment == 'left' ? 'selected' : ''}}>Left</option>
+					<option value="right" {{ field.alignment == 'right' ? 'selected' : ''}}>Right</option>
+				</select>
+			</div>
+			<div class="col_1of2">
+				<label for="color">Colour: <small>( ex: #FFF IS WHITE #000 IS BLACK )</small></label>
+				<input type="text" class="widefat" name="color" value="{{ field.color }}" />
+			</div>
+		</div>
+	</div>
+	<div class="footer"></div>
+</div>

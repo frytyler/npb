@@ -1,0 +1,26 @@
+<div class="speakers">
+{% for post in posts %}
+	<article class="speaker inner_container">
+		{% if post.image %}
+			<div class="col_1of3">
+				<img src="{{ post.image }}" class="left" />
+			</div>
+		{% endif %}
+		{% if post.image %}
+			<div class="col_2of3">
+				<h4>{{ post.title|raw }}</h4>
+				<div class="position">{{ post.speakerinfo[lang].position }}</div>
+				<div class="content">
+					{{ post.content|raw }}
+				</div>
+				{% if post.speakerinfo[lang].twitter_link %}
+					<a href="{{ post.speakerinfo[lang].twitter_link }}" class="icon icon-green icon-twitter"></a>
+				{% endif %}
+				{% if post.speakerinfo[lang].facebook_link %}
+					<a href="{{ post.speakerinfo[lang].facebook_link }}" class="icon icon-green icon-facebook"></a>
+				{% endif %}
+			</div>
+		{% endif %}
+	</article>
+{% endfor %}
+</div>

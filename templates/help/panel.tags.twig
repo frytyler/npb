@@ -1,0 +1,62 @@
+#Common HTML tags to use. 
+
+Use the fields below to create common used tags. 
+
+##Add a link
+
+Add your link and the name you wish to use. Then copy the generated code to paste where you want to use it. 
+
+<div class="inner_container">
+	<div class="col_1of4">
+		<label>Link: <small><strong>EX: </strong>http://google.ca</small></label>
+		<input type="text" class="widefat a_tag_link" data-variable="[[LINK]]" value="">
+	</div>
+	<div class="col_1of4">
+		<label>Text: <small><strong>EX: </strong>Click me</small></label>
+		<input type="text" class="widefat a_tag_text" data-variable="[[TEXT]]" value="">
+	</div>
+	<div class="col_2of4">
+		<label>&nbsp;</label>
+		<div class="inner_container">
+			<div class="col_1of4">
+				<a class="button button-primary generate_code" data-fields=".a_tag_link,.a_tag_text" data-target=".a_tag_code">Generate</a>
+			</div>
+			<div class="col_3of4">
+				<input type="text" readonly="readonly" class="widefat a_tag_code" data-template='<a href="[[LINK]]">[[TEXT]]</a>' value="">		
+				<small>Copy this code after filling in the fields.</small>
+			</div>
+		</div>		
+	</div>
+</div>
+
+##Common Tags
+If a tag has 2 parts to it replace the `[[YOUR TEXT]]` with what you want to write
+
+1. Line Break use: `<br />`
+2. Bolding Text use: `<strong>[[YOUR TEXT]]</strong>`
+3. Paragraphs use: `<p>[[YOUR TEXT]]</p>`
+
+<script>
+	var tagHelp = {
+		init: function () {
+			jQuery('.generate_code').on('click', this.generateCode);
+		},
+		generateCode: function () {
+			var that = jQuery(this),
+				data = that.data(),
+				fields = data.fields.split(','),
+				$target = jQuery(data.target),
+				template = $target.data('template');
+			jQuery.each(fields, function (i, field) {
+				var $field = field instanceof jQuery ? field : jQuery(field),
+					value = $field.val(),
+					variable = $field.data('variable');
+				template = template.replace(variable,value);
+			});
+			$target.val(template);
+		}
+	};
+	jQuery(document).ready( function () {
+		tagHelp.init();
+	});	
+</script>

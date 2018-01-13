@@ -1,0 +1,13 @@
+{% for post in posts %}
+	<article class="event">
+		<h2>{{ post.title|raw }}</h2>
+		<div class="date">{{ post.eventinfo[lang].date }}</div>
+		<div class="location">{{ post.eventinfo[lang].location_name }}</div>
+		<div class="content">
+			{{ post.content|raw }}
+		</div>
+		{% if post.eventinfo[lang].button_text %}
+			<a href="{{ post.eventinfo[lang].button_link }}" class="btn btn-primary">{{ post.eventinfo[lang].button_text }}</a></p>
+		{% endif %}
+	</article>
+{% endfor %}

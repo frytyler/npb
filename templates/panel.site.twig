@@ -1,0 +1,24 @@
+{{ msg | raw }}
+<form action="" method="post">
+	<input type="hidden" name="{{ hidden_field_name }}" value="1">
+	<div class="inner_container">
+		{% for lang in langs %}
+			<div class="col_1of2">
+				<label for="site_title_{{ lang }}">Site Title <strong>({{ lang|upper }})</strong>:</label>
+				<input type="text" class="widefat" name="site_title_{{ lang }}" id="site_title_{{ lang }}" value="{{ field[lang].site_title|e }}">
+				<label for="by_line_{{ lang }}">Footer byline <strong>({{ lang|upper }})</strong>:</label>
+				<input type="text" class="widefat" name="by_line_{{ lang }}" id="by_line_{{ lang }}" value="{{ field[lang].by_line|e }}">
+			</div>
+		{% endfor %}
+		<div class="col_1of1">
+			<hr>
+			<label for="show_ribbon">
+				<input type="checkbox" name="show_ribbon" id="show_ribbon" {{ field.show_ribbon == 1 ? 'checked' : '' }} value="1">
+				&nbsp; Show 50th Anniversary Ribbon in header?
+			</label>
+		</div>
+		<div class="col_1of1 form-group">
+			<button type="submit" class="button button-primary">Save</button>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,27 @@
+{{ msg | raw }}
+<form action="" method="post">
+	<input type="hidden" name="{{ hidden_field_name }}" value="1">
+	<div class="inner_container">
+		<div class="col_1of2">
+			<label for="feature_speed">Feature Slide Speed</label>
+			<select name="feature_speed" id="feature_speed" class="widefat">
+				<option value="0">Select Speed</option>
+				{% for i in 1..9 %}
+				    <option value="{{ i }}000" {{ (field.feature_speed == i ~ '000') ? 'selected="selected"' : ''}}>{{ i }} Second</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col_1of2">
+			<label for="feature_count">Feature Slide Count</label>
+			<select name="feature_count" id="feature_count" class="widefat">
+				<option value="0">Select Count</option>
+				{% for i in 1..6 %}
+				    <option value="{{ i }}" {{ (field.feature_count == i) ? 'selected="selected"' : ''}}>{{ i }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col_1of1 form-group">
+			<button type="submit" class="button button-primary">Save</button>
+		</div>
+	</div>
+</form>

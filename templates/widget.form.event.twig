@@ -1,0 +1,14 @@
+{% for lang in langs %}
+	<p>
+		<label for="{{ field[lang].title.id }}">Title: <strong>({{ lang | upper }})</strong></label>
+		<input class="widefat" id="{{ field[lang].title.id }}" name="{{ field[lang].title.name }}" type="text" value="{{ field[lang].title.value|e }}" />
+	</p>
+{% endfor %}
+<p>
+	<label for="{{ field.event.id }}">Choose an event:</label>
+	<select name="{{ field.event.name }}" id="{{ field.event.id }}" class="widefat" {{ multiple ? 'multiple="true"' : '' }}>
+		{% for event in events %}
+			<option value="{{ event.id }}" {{ field.event.value == event.id ? 'selected' : ''}}>{{ event.title|raw }}</option>
+		{% endfor %}
+	</select>
+</p>

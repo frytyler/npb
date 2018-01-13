@@ -1,0 +1,18 @@
+{{ before_widget | raw }}
+{% if title %}
+	<header>
+	{{ before_title|raw }}
+	{{ title|raw }}
+	{{ after_title|raw }}
+	</header>
+{% endif %}
+{% if image %}
+	<div class="image">
+		{% if link == "" or link == "#" %}
+			<img src="{{ image }}" />
+		{% else %}
+			<a href="{{ link | raw }}" class="promo" {% if blank %}target="_blank"{% else %}{% endif %} rel="nofollow"><img src="{{ image }}" /></a>
+		{% endif %}
+	</div>
+{% endif %}
+{{ after_widget | raw }}

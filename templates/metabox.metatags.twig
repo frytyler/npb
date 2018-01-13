@@ -1,0 +1,19 @@
+<div class="sp_metabox">
+	<header class="header">
+		<h2>Metatag / Keyword Options</h2>
+	</header>
+	<div class="body">
+		<p><small>Too many keywords isn't necessarily good practice. Keep them relevant to the content of the POST</small></p>
+		<div class="inner_container">
+			{% for lang in langs %}
+				<div class="col_1of2">
+					<label for="meta_keywords_{{ lang }}">
+						Keywords: <em>(Seperated by commas)</em> <strong>({{ lang|upper }})</strong>
+					</label>
+					<input type="text" class="widefat" name="meta_keywords_{{ lang }}" value="{{ field[lang].meta_keywords }}" maxlength="2020" />
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="footer"></div>
+</div>

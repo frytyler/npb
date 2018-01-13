@@ -1,0 +1,17 @@
+{{ settings.before_widget | raw }}
+<header>
+	{{ settings.before_title|raw }}
+	{{ settings.title|raw }}
+	{{ setttings.after_title|raw }}
+</header>
+<article>
+	<ul class="eventlist">
+	{% for post in posts %}
+		<li>
+			<h4><a href="{{ post.link|raw }}">{{ post.title }}</a></h4>
+			<div class="date">{{ post.eventinfo[lang].date }}</div>
+		</li>
+	{% endfor %}
+	</ul>
+</article>
+{{ settings.after_widget | raw }}

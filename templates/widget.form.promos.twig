@@ -1,0 +1,15 @@
+{% for lang in langs %}
+{{ (lang == 'fr') ? '<hr />' : '' }}
+<p>
+	<label for="{{ field[lang].title.id }}">Title: ({{ lang | upper }})</label>
+	<input class="widefat" id="{{ field[lang].title.id }}" name="{{ field[lang].title.name }}" type="text" value="{{ field[lang].title.value|e }}" />
+</p>
+<p>
+	<label for="{{ field[lang].image.id }}">Image (Link to your image): ({{ lang | upper }})</label>
+	<input class="widefat" id="{{ field[lang].image.id }}" name="{{ field[lang].image.name }}" type="text" value="{{ field[lang].image.value|e }}" maxlength="2020" />
+</p>
+<p>
+	<label for="{{ field[lang].link.id }}">Website link: ({{ lang | upper }})</label>
+	<input class="widefat" id="{{ field[lang].link.id }}" name="{{ field[lang].link.name }}" type="text" value="{{ field[lang].link.value|e }}" maxlength="2020" />
+</p>
+{% endfor %}

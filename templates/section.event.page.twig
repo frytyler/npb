@@ -1,0 +1,14 @@
+{% if banner %}
+	<div class="banner">
+		<img src="{{ banner }}">
+	</div>
+{% endif %}
+<div class="inner_container">
+	<div class="col_2of3">
+		{{ event|raw }}
+		{{ speakers|raw }}
+	</div>
+	<aside class="sidebar sidebar-events col_1of3">
+		{{ sidebar|raw }}
+	</aside>
+</div>

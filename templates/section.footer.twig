@@ -1,0 +1,38 @@
+<footer class="footer">
+	<div class="logo-bar">
+		<div class="container">
+			<div class="inner_container">
+				<div class="col_1of1">
+					<div class="mini-logo"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer-buckets">
+		<div class="container">
+			<div class="inner_container">
+				<div class="col_1of3 logo_wrap">
+					{{ logo|raw }}
+				</div>
+				<div class="col_2of3">
+					<div class="inner_container">
+						<div class="col_2of3">
+							{{ SiteMap|raw }}
+						</div>
+						<div class="col_1of3 socnets">
+							{% for site in sites %}
+								{% if social[site] %}
+									<a href="{{ social[site]|raw }}" class="icon icon-{{ site }}"></a>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="col_1of1">
+					<p class="byline">&copy;{{ "now" | date('Y') }} {{ SiteTitle }}. {{ ByLine }}</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</footer>

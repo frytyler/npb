@@ -1,0 +1,44 @@
+<style>
+{% for id in ids %}
+#{{ id }}{% if not loop.last %},{% endif %}
+{% endfor %}
+{
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        padding: 0;
+}
+{% for id in ids %}
+#{{ id }} .handlediv,
+#{{ id }} .hndle span{% if not loop.last %},{% endif %}
+{% endfor %}
+{ 
+        display: none; 
+}
+{% for id in ids %}
+#{{ id }} .hndle{% if not loop.last %},{% endif %}
+{% endfor %}
+{
+        border: none;
+}
+{% for id in ids %}
+#{{ id }} .hndle:before{% if not loop.last %},{% endif %}
+{% endfor %}
+{
+        content: '';
+}
+{% for id in ids %}
+#{{ id }} .inside{% if not loop.last %},{% endif %}
+{% endfor %}
+{
+        padding: 0;
+        margin: 0;
+}
+{% for id in ids %}
+#{{ id }} .inside .wrap{% if not loop.last %},{% endif %}
+{% endfor %}
+{
+        margin: 0;
+}
+</style>

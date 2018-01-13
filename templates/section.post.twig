@@ -1,0 +1,12 @@
+{% for post in posts %}
+	<article class="post">
+		{# <h2><a href="{{ post.link | raw }}">{{ post.title | truncate_word(50) | raw }}</a></h2> #}
+		<h2>{{ post.title | truncate_word(50) | raw }}</h2>
+		<p class="date">{{ post.date | date('M d, Y')}}</p>
+		{% if post.image %}
+			<img src="{{ post.image }}" />
+		{% endif %}
+		{{ post.content|raw }}
+	</article>
+{% endfor %}
+{{ pagination | raw }}

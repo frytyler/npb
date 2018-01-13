@@ -1,0 +1,21 @@
+{{ msg | raw }}
+<form action="" method="post">
+	<input type="hidden" name="{{ hidden_field_name }}" value="1">
+	<div class="inner_container">
+		<div class="col_1of2">
+			<label for="contact_name">{{ label.name }}:</label>
+			<input type="text" name="contact_name" id="contact_name" value="{{ post.contact_name }}" />
+			<label for="contact_email">{{ label.email }}:</label>
+			<input type="text" name="contact_email" id="contact_email" value="{{ post.contact_email }}" />
+			<label for="contact_postalcode">{{ label.postalcode }}:</label>
+			<input type="text" name="contact_postalcode" id="contact_postalcode" value="{{ post.contact_postalcode }}" />
+		</div>
+		<div class="col_1of2">&nbsp;</div>
+		<div class="clr"></div>
+		<div class="col_1of1">
+			<label for="contact_message">{{ label.message }}:</label>
+			<textarea name="contact_message" id="contact_message" style="min-height:150px;">{{ post.contact_message }}</textarea>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary btn-large">{{ button_text }}</button>
+</form>

@@ -1,0 +1,23 @@
+{% for lang in langs %}
+	{{ lang == 'fr' ? '<hr />' : '' }}
+	<p>
+		<label for="{{ field[lang].title.id }}">Title: <strong>({{ lang | upper }})</strong></label>
+		<input class="widefat" id="{{ field[lang].title.id }}" name="{{ field[lang].title.name }}" type="text" value="{{ field[lang].title.value|e }}" />
+	</p>
+	<p>
+		<label for="{{ field[lang].name_label.id }}">Name Field (label): <strong>({{ lang | upper }})</strong></label>
+		<input class="widefat" id="{{ field[lang].name_label.id }}" name="{{ field[lang].name_label.name }}" type="text" value="{{ field[lang].name_label.value|e }}" />
+	</p>
+	<p>
+		<label for="{{ field[lang].email_label.id }}">Email Field (label): <strong>({{ lang | upper }})</strong></label>
+		<input class="widefat" id="{{ field[lang].email_label.id }}" name="{{ field[lang].email_label.name }}" type="text" value="{{ field[lang].email_label.value|e }}" />
+	</p>
+	<p>
+		<label for="{{ field[lang].postalcode_label.id }}">Postal Code Field (label): <strong>({{ lang | upper }})</strong></label>
+		<input class="widefat" id="{{ field[lang].postalcode_label.id }}" name="{{ field[lang].postalcode_label.name }}" type="text" value="{{ field[lang].postalcode_label.value|e }}" />
+	</p>
+	<p>
+		<label for="{{ field[lang].button_text.id }}">Button Text: <strong>({{ lang | upper }})</strong></label>
+		<input class="widefat" id="{{ field[lang].button_text.id }}" name="{{ field[lang].button_text.name }}" type="text" value="{{ field[lang].button_text.value|e }}" />
+	</p>
+{% endfor %}

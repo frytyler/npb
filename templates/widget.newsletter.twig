@@ -1,0 +1,18 @@
+{{ before_widget|raw }}
+<header>
+	{{ before_title|raw }}
+	{{ title|raw }}
+	{{ after_title|raw }}
+</header>
+<article>
+	{{ msg|raw }}
+	<form action="" method="post">
+		<input type="hidden" name="{{ hidden_field_name }}" value="1" />
+		{% for key in fields %}
+		<label for="{{ field[key].id }}">{{ field[key].label }}</label>
+		<input type="text" name="{{ field[key].name }}" id="{{ field[key].id }}" value="{{ field[key].value }}">
+		{% endfor %}
+		<button type="submit" class="btn btn-primary btn-block btn-large">{{ button_text|raw }}</button>
+	</form>
+</article>
+{{ after_widget|raw }}
