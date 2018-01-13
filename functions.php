@@ -884,7 +884,7 @@ class NPB {
 		if ($location == 'header') {
 			$crest = '<span class="crest"></span>';
 		} 
-		$logo = '<h1 class="logo '.sp_translate('en','fr').'">'.$crest.'<a href="'.$link.'">'.@sp_translate($logo_en,$logo_fr).'<span class="flag"></span></a></h1>';
+		$logo = '<h1 class="logo '.sp_translate('en','fr').'">'.$crest.@sp_translate($logo_en,$logo_fr).'<span class="flag"></span></h1>';
 		return $logo;
 	}
 
