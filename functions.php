@@ -869,9 +869,9 @@ class NPB {
 	public function get_language_toggle( )
 	{
 		$template = array( );
-		$template["label"] = @sp_translate('Français','English');
-		$url = (is_front_page()) ? NPB_HOME : get_permalink(get_the_ID());
-		$template["link"] = qtrans_convertURL($url,@sp_translate('fr','en'));
+		if (function_exists('pll_the_languages')) {
+			$template["anchor"] = pll_the_languages(['echo' => 0, 'hide_current' => 1, 'post_id' => get_the_ID()]);
+		}
 		echo $this->TWIG->render('section.language.twig', $template);
 	}
 	
