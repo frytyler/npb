@@ -6,6 +6,17 @@
 		<div class="inner_container">
 			{% for lang in langs %}
 				<div class="col_1of2">
+					<label for="feature_title_{{ lang }}">Feature Title <strong>({{ lang|upper }})</strong>:</label>
+					<input type="text" class="widefat" name="feature_title_{{ lang }}" value="{{ field[lang].feature_title }}" />
+					<label for="feature_description_{{ lang }}">Feature Description <strong>({{ lang|upper }})</strong>:</label>
+					<textarea class="widefat" maxlength="1000" name="feature_description_{{ lang }}">{{ field[lang].feature_description }}</textarea>
+				</div>
+			{% endfor %}
+			<div class="col_1of1">
+				<hr />
+			</div>
+			{% for lang in langs %}
+				<div class="col_1of2">
 					<label for="btn_text_{{ lang }}">Button Text <strong>({{ lang|upper }})</strong>:</label>
 					<input type="text" class="widefat" name="btn_text_{{ lang }}" value="{{ field[lang].btn_text }}" />
 					<label for="btn_link_{{ lang }}">Button Link <strong>({{ lang|upper }})</strong>:</label>

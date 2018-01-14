@@ -2,11 +2,19 @@
 {% for post in posts %}
 	<header class="primary">
 		{{ settings.before_title|raw }}
-		{{ post.title|raw }}
+		{% if post.featureinfo[lang].feature_title %}
+			{{ post.featureinfo[lang].feature_title }}
+		{% else %}
+			{{ post.title|raw }}
+		{% endif %}
 		{{ setttings.after_title|raw }}
 	</header>
 	<article class="primary">
-		{{ post.content|raw }}
+		{% if post.featureinfo[lang].feature_description %}
+			{{ post.featureinfo[lang].feature_description|raw }}
+		{% else %}
+			{{ post.content|raw }}
+		{% endif %}
 		{% if post.featureinfo[lang].btn_text %}
 			<a class="btn btn-large btn-block" href="{{ post.featureinfo[lang].btn_link|e }}" target="_blank">{{ post.featureinfo[lang].btn_text }}</a>
 		{% endif %}

@@ -359,6 +359,8 @@ class NPB {
 		else { if (!current_user_can('edit_post', $post_id)) return; }
 		$fields = array( );
 		foreach($this->LANGS as $lang):
+			$fields[$lang]["feature_title"] = sp_clean_post($_POST["feature_title_".$lang]);
+			$fields[$lang]["feature_description"] = sp_clean_post($_POST["feature_description_".$lang]);
 			$fields[$lang]["btn_text"] = sp_clean_post($_POST["btn_text_".$lang]);
 			$fields[$lang]["btn_link"] = sp_clean_post($_POST["btn_link_".$lang]);
 			$fields[$lang]["image_link"] = sp_clean_post($_POST["image_link_".$lang]);
@@ -958,7 +960,10 @@ class NPB {
             <li class="next">'.get_previous_posts_link( $prevlinktext . ' &rarr;', $query->max_num_pages).'</li>  
         </ul>';
 
-        $template["lang"] = ($q_config['language']) ? $q_config['language']: 'en';
+		$template["lang"] = 'en';
+		if(function_exists('pll_current_language')) {
+			$template["lang"] = pll_current_language();
+		}
 
 		if ( $customtwig )
 			$template["settings"] = $customtwig;

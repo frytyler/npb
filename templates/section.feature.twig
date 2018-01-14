@@ -23,10 +23,20 @@
 						<div class="col_1of3 {{ post.featureinfo.alignment == 'right' ? '' : 'right' }}">
 							<div class="box">
 								<header>
-									<h2 {% if post.featureinfo.color != '' %}style="color:{{ post.featureinfo.color }};"{% endif %}>{{ post.title|raw }}</h2>
+									<h2 {% if post.featureinfo.color != '' %}style="color:{{ post.featureinfo.color }};"{% endif %}>
+										{% if post.featureinfo[lang].feature_title %}
+											{{ post.featureinfo[lang].feature_title }}
+										{% else %}
+											{{ post.title|raw }}
+										{% endif %}
+									</h2>
 								</header>
 								<article {% if post.featureinfo.color != '' %}style="color:{{ post.featureinfo.color }};"{% endif %}>
-									{{ post.content|raw }}
+									{% if post.featureinfo[lang].feature_description %}
+										{{ post.featureinfo[lang].feature_description|raw }}
+									{% else %}
+										{{ post.content|raw }}
+									{% endif %}
 									{% if post.featureinfo[lang].btn_text %}
 										<a class="btn btn-large btn-block" href="{{ post.featureinfo[lang].btn_link|e }}" target="_blank">{{ post.featureinfo[lang].btn_text }}</a>
 									{% endif %}
